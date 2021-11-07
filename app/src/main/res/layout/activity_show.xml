@@ -1,29 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <RelativeLayout
+    <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="#82B1FF">
-
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="查看密码"
-                android:textSize="30sp"
-                android:layout_centerInParent="true" />
-
-        <ImageButton
-                android:id="@+id/delete"
-                android:src="@drawable/minus_green"
-                android:background="#82B1FF"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true" />
-    </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize"
+            android:id="@+id/toolbar" />
 
     <TextView
             android:id="@+id/activity_show_appName"
@@ -66,3 +54,4 @@
     </RelativeLayout>
 
 </LinearLayout>
+</layout>

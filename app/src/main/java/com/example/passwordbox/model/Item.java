@@ -1,4 +1,4 @@
-package com.example.passwordbox;
+package com.example.passwordbox.model;
 
 /**
  * NOTE:

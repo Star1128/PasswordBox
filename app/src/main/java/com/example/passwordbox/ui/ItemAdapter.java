@@ -1,4 +1,4 @@
-package com.example.passwordbox;
+package com.example.passwordbox.ui;
 
 import android.content.Intent;
 import android.view.*;
@@ -6,6 +6,9 @@ import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.passwordbox.R;
+import com.example.passwordbox.model.Item;
 
 import java.util.List;
 
@@ -32,7 +35,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.mView.setOnClickListener((View v)->{//设置子项点击响应
             int position=holder.getAdapterPosition();
             Item item=mItemList.get(position);
-            Intent intent=new Intent(parent.getContext(),ShowActivity.class);
+            Intent intent=new Intent(parent.getContext(), ShowActivity.class);
             intent.putExtra("item",item.getAppName());
             parent.getContext().startActivity(intent);
         });
@@ -52,7 +55,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return mItemList.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final View mView;
         private final ImageView mImageView;
