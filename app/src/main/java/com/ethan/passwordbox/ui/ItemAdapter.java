@@ -1,14 +1,15 @@
-package com.example.passwordbox.ui;
+package com.ethan.passwordbox.ui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.*;
 import android.widget.*;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.passwordbox.R;
-import com.example.passwordbox.model.Item;
+import com.ethan.passwordbox.R;
+import com.ethan.passwordbox.model.Item;
 
 import java.util.List;
 
@@ -20,10 +21,10 @@ import java.util.List;
  */
 public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
-    private final List<Item> mItemList;
+    private final List<Item> mList;
 
     public ItemAdapter(List<Item> list) {
-        mItemList = list;
+        mList = list;
     }
 
     @NonNull
@@ -32,11 +33,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
-        holder.mView.setOnClickListener((View v)->{//设置子项点击响应
-            int position=holder.getAdapterPosition();
-            Item item=mItemList.get(position);
-            Intent intent=new Intent(parent.getContext(), ShowActivity.class);
-            intent.putExtra("item",item.getAppName());
+        holder.mView.setOnClickListener((View v) -> {
+            int position = holder.getBindingAdapterPosition();
+            Item item = mList.get(position);
+            Intent intent = new Intent(parent.getContext(), ShowActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("app", item);
+            intent.putExtra("info", bundle);
             parent.getContext().startActivity(intent);
         });
 
@@ -45,14 +48,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
-        Item item = mItemList.get(position);
+        Item item = mList.get(position);
         holder.mTextView.setText(item.getAppName());
         holder.mImageView.setImageResource(item.getImageId());
     }
 
     @Override
     public int getItemCount() {
-        return mItemList.size();
+        return mList.size();
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

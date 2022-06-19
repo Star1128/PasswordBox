@@ -1,4 +1,4 @@
-package com.example.passwordbox;
+package com.ethan.passwordbox;
 
 import org.junit.Test;
 

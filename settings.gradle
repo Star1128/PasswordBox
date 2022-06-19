@@ -1,2 +1,3 @@
 rootProject.name = "PasswordBox"
 include ':app'
+include ':EthanUtils'
