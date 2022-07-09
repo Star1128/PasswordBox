@@ -6,7 +6,7 @@ import com.ethan.ethanutils.ELog;
 import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.MainApplication;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
-import com.ethan.passwordbox.model.Item;
+import com.ethan.passwordbox.POJO.Item;
 
 import java.util.List;
 

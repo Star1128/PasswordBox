@@ -2,7 +2,7 @@ package com.ethan.passwordbox.data.local;
 
 import androidx.room.*;
 
-import com.ethan.passwordbox.model.Item;
+import com.ethan.passwordbox.POJO.Item;
 
 import java.util.List;
 

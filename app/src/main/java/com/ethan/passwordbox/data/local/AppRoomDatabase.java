@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.room.*;
 
-import com.ethan.passwordbox.model.Item;
+import com.ethan.passwordbox.POJO.Item;
 
 /**
  * NOTE:
@@ -18,7 +18,9 @@ public abstract class AppRoomDatabase extends RoomDatabase {
 
     public static AppRoomDatabase getMyRoomDatabase(Context context) {
         if (mMyRoomDatabase == null) {
-            mMyRoomDatabase = Room.databaseBuilder(context.getApplicationContext(), AppRoomDatabase.class, "PasswordBox")
+            mMyRoomDatabase = Room.databaseBuilder(context.getApplicationContext(),
+                            AppRoomDatabase.class,
+                            "PasswordBox")
                     .build();
         }
         return mMyRoomDatabase;

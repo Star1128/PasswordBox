@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ethan.passwordbox.R;
-import com.ethan.passwordbox.model.Item;
+import com.ethan.passwordbox.POJO.Item;
 
 import java.util.List;
 

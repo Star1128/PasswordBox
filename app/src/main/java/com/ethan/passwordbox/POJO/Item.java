@@ -1,4 +1,4 @@
-package com.ethan.passwordbox.model;
+package com.ethan.passwordbox.POJO;
 
 import android.os.Parcel;
 import android.os.Parcelable;

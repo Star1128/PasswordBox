@@ -16,7 +16,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.ethan.passwordbox.R;
 import com.ethan.passwordbox.databinding.ActivityMainBinding;
-import com.ethan.passwordbox.model.Item;
+import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.viewmodel.MainViewModel;
 import com.ethan.passwordbox.viewmodel.ViewModelFactory;
 
