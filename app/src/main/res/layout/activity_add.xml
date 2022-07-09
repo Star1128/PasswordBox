@@ -1,86 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:theme="?attr/actionBarTheme"
-            android:minHeight="?attr/actionBarSize"
-            android:id="@+id/toolbar" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <EditText
-            android:id="@+id/activity_add_appName"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="应用名"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"
-            android:maxLines="1" />
-
-    <EditText
-            android:id="@+id/activity_add_userName"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="账号"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:maxLines="1" />
-
-    <EditText
-            android:id="@+id/activity_add_password"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:hint="密码"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:maxLines="1" />
-
-    <RadioGroup
-            android:id="@+id/group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
-
-        <RadioButton
-                android:id="@+id/radioButton1"
-                android:text="非常重要"
-                android:layout_width="0dp"
+        <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:background="?attr/colorPrimary"
+                android:theme="?attr/actionBarTheme"
+                android:minHeight="?attr/actionBarSize"
+                android:id="@+id/toolbar" />
 
-        <RadioButton
-                android:id="@+id/radioButton2"
-                android:text="重要"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        <RadioButton
-                android:id="@+id/radioButton3"
-                android:text="一般"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-    </RadioGroup>
-
-    <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="@string/version" />
-    </RelativeLayout>
+                android:layout_gravity="center">
 
-</LinearLayout>
+            <EditText
+                    android:id="@+id/activity_add_appName"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:hint="应用名"
+                    android:layout_marginTop="100dp"
+                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+                android:id="@+id/activity_add_userName"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="账号"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:maxLines="1" />
+
+        <EditText
+                android:id="@+id/activity_add_password"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:hint="密码"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:maxLines="1" />
+
+        <RadioGroup
+                android:id="@+id/radiogroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
+
+            <RadioButton
+                    android:id="@+id/radioButton1"
+                    android:text="非常重要"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_weight="1" />
+
+            <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:text="重要"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+            <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:text="一般"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+        </RadioGroup>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/version" />
+        </RelativeLayout>
+
+    </LinearLayout>
 </layout>

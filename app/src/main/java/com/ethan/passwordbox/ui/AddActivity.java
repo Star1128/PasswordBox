@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.ethan.passwordbox.MainApplication;
-import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.R;
+import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
 import com.ethan.passwordbox.databinding.ActivityAddBinding;
 
@@ -37,23 +37,19 @@ public class AddActivity extends AppCompatActivity {
         appName = mBinding.activityAddAppName.getText().toString();
         userName = mBinding.activityAddUserName.getText().toString();
         password = mBinding.activityAddPassword.getText().toString();
-        radioButtonId = mBinding.group.getCheckedRadioButtonId();
+        radioButtonId = mBinding.radiogroup.getCheckedRadioButtonId();
     }
 
-    private int radio2ImageId(int radioId) {
-        int imageId = 0;
-        switch (radioId) {
-            case R.id.radioButton1:
-                imageId = R.drawable.key_red;
-                break;
-            case R.id.radioButton2:
-                imageId = R.drawable.key_orange;
-                break;
-            case R.id.radioButton3:
-                imageId = R.drawable.key_blue;
-                break;
+    private int radio2ImportanceId(int radioId) {
+        int importanceId = 0;
+        if (radioId == R.id.radioButton1) {
+            importanceId = 1;
+        } else if (radioId == R.id.radioButton2) {
+            importanceId = 2;
+        } else if (radioId == R.id.radioButton3) {
+            importanceId = 3;
         }
-        return imageId;
+        return importanceId;
     }
 
     @Override
@@ -69,7 +65,7 @@ public class AddActivity extends AppCompatActivity {
             read();
 
             if (!TextUtils.isEmpty(appName) && !TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password) && radioButtonId != -1) {
-                Item newItem = new Item(appName, userName, radio2ImageId(radioButtonId), password);
+                Item newItem = new Item(appName, userName, radio2ImportanceId(radioButtonId), password);
                 new Thread(() -> {
                     AppDao appDao = AppRoomDatabase.getMyRoomDatabase(MainApplication.mContext).appDao();
                     newItem.setId(appDao.insertItem(newItem));

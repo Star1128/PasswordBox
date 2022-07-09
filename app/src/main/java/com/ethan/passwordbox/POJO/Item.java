@@ -6,11 +6,6 @@ import android.os.Parcelable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-/**
- * NOTE:
- *
- * @author Ethan
- */
 @Entity
 public class Item implements Parcelable {
 
@@ -28,20 +23,20 @@ public class Item implements Parcelable {
     @PrimaryKey(autoGenerate = true)
     private long id;
     private final String appName;
-    private final int imageId;
+    private final int importanceId;
     private final String userName;
     private String password;
 
-    public Item(String appName, String userName, int imageId, String password) {
+    public Item(String appName, String userName, int importanceId, String password) {
         this.appName = appName;
         this.userName = userName;
-        this.imageId = imageId;
+        this.importanceId = importanceId;
         this.password = password;
     }
 
     protected Item(Parcel in) {
         appName = in.readString();
-        imageId = in.readInt();
+        importanceId = in.readInt();
         userName = in.readString();
         id = in.readLong();
         password = in.readString();
@@ -71,8 +66,8 @@ public class Item implements Parcelable {
         return appName;
     }
 
-    public int getImageId() {
-        return imageId;
+    public int getImportanceId() {
+        return importanceId;
     }
 
     @Override
@@ -83,7 +78,7 @@ public class Item implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(appName);
-        dest.writeInt(imageId);
+        dest.writeInt(importanceId);
         dest.writeString(userName);
         dest.writeLong(id);
         dest.writeString(password);

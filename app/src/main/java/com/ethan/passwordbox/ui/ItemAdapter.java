@@ -3,13 +3,14 @@ package com.ethan.passwordbox.ui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.*;
-import android.widget.*;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ethan.passwordbox.R;
 import com.ethan.passwordbox.POJO.Item;
+import com.ethan.passwordbox.R;
 
 import java.util.List;
 
@@ -49,8 +50,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.ViewHolder holder, int position) {
         Item item = mList.get(position);
-        holder.mTextView.setText(item.getAppName());
-        holder.mImageView.setImageResource(item.getImageId());
+        holder.mAppName.setText(item.getAppName());
+        holder.mUserName.setText(item.getUserName());
+        holder.mImageView.setImageResource(importanceId2ImageId(item.getImportanceId()));
     }
 
     @Override
@@ -58,17 +60,37 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return mList.size();
     }
 
+    public int importanceId2ImageId(int importanceId) {
+        int imageId;
+        switch (importanceId) {
+            case 1:
+                imageId = R.drawable.key_red_v2;
+                break;
+            case 2:
+                imageId = R.drawable.key_orange_v2;
+                break;
+            case 3:
+                imageId = R.drawable.key_blue_v2;
+                break;
+            default:
+                imageId = R.drawable.key_default;
+        }
+        return imageId;
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final View mView;
         private final ImageView mImageView;
-        private final TextView mTextView;
+        private final TextView mAppName;
+        private final TextView mUserName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
             mImageView = itemView.findViewById(R.id.keyImage);
-            mTextView = itemView.findViewById(R.id.appName);
+            mAppName = itemView.findViewById(R.id.appName);
+            mUserName=itemView.findViewById(R.id.userName);
         }
     }
 }

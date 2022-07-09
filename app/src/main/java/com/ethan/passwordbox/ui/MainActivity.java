@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         getLifecycle().addObserver(mainViewModel);
 
         // 设置加载圈的颜色,多个颜色就是每转一圈换一个颜色
-        mBinding.swipe.setColorSchemeColors(Color.GREEN, Color.YELLOW, Color.RED);
+        mBinding.swipe.setColorSchemeColors(Color.BLACK);
         mBinding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
