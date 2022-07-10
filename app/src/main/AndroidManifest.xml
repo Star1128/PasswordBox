@@ -10,7 +10,7 @@
             android:roundIcon="@mipmap/box"
             android:supportsRtl="true"
             android:theme="@style/Theme.PasswordBox">
-        <activity android:name="com.ethan.passwordbox.ui.ShowActivity"/>
+<!--        <activity android:name="com.ethan.passwordbox.ui.ShowActivity"/>-->
         <activity android:name="com.ethan.passwordbox.ui.AddActivity" />
         <activity android:name="com.ethan.passwordbox.ui.MainActivity"
                 android:exported="true">

@@ -2,6 +2,7 @@ package com.ethan.passwordbox.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.*;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,16 +36,33 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
-        holder.mView.setOnClickListener((View v) -> {
-            int position = holder.getBindingAdapterPosition();
-            Item item = mList.get(position);
-            Intent intent = new Intent(parent.getContext(), ShowActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("app", item);
-            intent.putExtra("info", bundle);
-            parent.getContext().startActivity(intent);
-        });
+//        holder.mView.setOnClickListener((View v) -> {
+//            int position = holder.getBindingAdapterPosition();
+//            Item item = mList.get(position);
+//            Intent intent = new Intent(parent.getContext(), ShowActivity.class);
+//            Bundle bundle = new Bundle();
+//            bundle.putParcelable("app", item);
+//            intent.putExtra("info", bundle);
+//            parent.getContext().startActivity(intent);
+//        });
 
+        holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                int position = holder.getBindingAdapterPosition();
+                Item item = mList.get(position);
+                CharSequence userName = holder.mUserName.getText();
+                holder.mUserName.setText(item.getPassword());
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        holder.mUserName.setText(userName);
+                    }
+                }, 1000);
+                return true;
+            }
+        });
         return holder;
     }
 

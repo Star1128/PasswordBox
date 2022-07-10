@@ -18,6 +18,7 @@ import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.R;
 import com.ethan.passwordbox.databinding.ActivityShowBinding;
 
+@Deprecated
 public class ShowActivity extends AppCompatActivity {
     ActivityShowBinding mBinding;
     Item item;
