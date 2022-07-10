@@ -1,18 +1,23 @@
 package com.ethan.passwordbox.ui;
 
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Handler;
 import android.view.*;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.*;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.R;
 import com.ethan.passwordbox.config.Cons;
+import com.ethan.passwordbox.config.MainApplication;
+import com.ethan.passwordbox.data.local.AppDao;
+import com.ethan.passwordbox.data.local.AppRoomDatabase;
+import com.ethan.passwordbox.encrypt.AES;
 
 import java.util.List;
 
@@ -36,31 +41,34 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
-//        holder.mView.setOnClickListener((View v) -> {
-//            int position = holder.getBindingAdapterPosition();
-//            Item item = mList.get(position);
-//            Intent intent = new Intent(parent.getContext(), ShowActivity.class);
-//            Bundle bundle = new Bundle();
-//            bundle.putParcelable("app", item);
-//            intent.putExtra("info", bundle);
-//            parent.getContext().startActivity(intent);
-//        });
-
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
                 int position = holder.getBindingAdapterPosition();
                 Item item = mList.get(position);
                 CharSequence userName = holder.mUserName.getText();
-                holder.mUserName.setText(item.getPassword());
+                try {
+                    holder.mUserName.setText(AES.decrypt(item.getPassword()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         holder.mUserName.setText(userName);
                     }
-                }, 1000);
+                }, Cons.Time.PSW_SHOW_TIME);
                 return true;
+            }
+        });
+
+        holder.mDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getBindingAdapterPosition();
+                Item item = mList.get(position);
+                deleteItem(item,v.getContext(),position);
             }
         });
         return holder;
@@ -97,12 +105,41 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return imageId;
     }
 
+    public void deleteItem(Item item, Context context,int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("删除确认");
+        builder.setMessage("删除后不可恢复哦~");
+        builder.setCancelable(true); // 使用back键是否可以取消该对话框
+        builder.setPositiveButton("必须删！", (DialogInterface dialogInterface, int which) -> {
+            deleteItemDB(item); // 在数据库中删除
+            mList.remove(position); // 在当前列表中删除
+            notifyItemRemoved(position);
+        });
+        builder.setNegativeButton("再想想", (DialogInterface dialogInterface, int which) -> {
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        // 很特殊的一点，要在show()之后设置按钮颜色
+        dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(Color.BLACK);
+        dialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(Color.BLACK);
+        dialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
+    }
+
+    public void deleteItemDB(Item item) {
+        new Thread(() -> {
+            AppDao appDao = AppRoomDatabase.getMyRoomDatabase(MainApplication.mContext).appDao();
+            appDao.deleteItem(item);
+        }).start();
+    }
+
     static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final View mView;
         private final ImageView mImageView;
         private final TextView mAppName;
         private final TextView mUserName;
+        private final ImageButton mDelete;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -110,6 +147,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             mImageView = itemView.findViewById(R.id.keyImage);
             mAppName = itemView.findViewById(R.id.appName);
             mUserName = itemView.findViewById(R.id.userName);
+            mDelete = itemView.findViewById(R.id.delete);
         }
     }
 }

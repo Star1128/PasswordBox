@@ -10,12 +10,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.ethan.passwordbox.config.MainApplication;
 import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.R;
+import com.ethan.passwordbox.config.MainApplication;
 import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
 import com.ethan.passwordbox.databinding.ActivityAddBinding;
+import com.ethan.passwordbox.encrypt.AES;
 
 public class AddActivity extends AppCompatActivity {
     ActivityAddBinding mBinding;
@@ -65,7 +66,8 @@ public class AddActivity extends AppCompatActivity {
             read();
 
             if (!TextUtils.isEmpty(appName) && !TextUtils.isEmpty(userName) && !TextUtils.isEmpty(password) && radioButtonId != -1) {
-                Item newItem = new Item(appName, userName, radio2ImportanceId(radioButtonId), password);
+                String psw_encrypt = AES.encrypt_AES(password);
+                Item newItem = new Item(appName, userName, radio2ImportanceId(radioButtonId), psw_encrypt, getString(R.string.version_code));
                 new Thread(() -> {
                     AppDao appDao = AppRoomDatabase.getMyRoomDatabase(MainApplication.mContext).appDao();
                     newItem.setId(appDao.insertItem(newItem));

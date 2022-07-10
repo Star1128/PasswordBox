@@ -25,7 +25,7 @@
                 android:layout_toEndOf="@id/keyImage"
                 android:layout_alignParentTop="true"
                 android:textSize="24sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
         <TextView
                 android:id="@+id/userName"
@@ -36,6 +36,20 @@
                 android:layout_toEndOf="@id/keyImage"
                 android:layout_alignParentBottom="true"
                 android:textSize="18sp" />
+
+        <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="20dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/delete_black"
+                android:backgroundTint="?attr/colorPrimary"
+                android:scaleType="center"
+                android:paddingStart="0dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="1dp"
+                android:paddingTop="0dp" />
 
         <View
                 android:layout_width="280dp"

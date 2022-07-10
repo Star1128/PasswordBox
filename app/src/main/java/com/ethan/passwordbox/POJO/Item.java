@@ -26,12 +26,14 @@ public class Item implements Parcelable {
     private final int importanceId;
     private final String userName;
     private String password;
+    private String version;
 
-    public Item(String appName, String userName, int importanceId, String password) {
+    public Item(String appName, String userName, int importanceId, String password,String version) {
         this.appName = appName;
         this.userName = userName;
         this.importanceId = importanceId;
         this.password = password;
+        this.version=version;
     }
 
     protected Item(Parcel in) {
@@ -68,6 +70,14 @@ public class Item implements Parcelable {
 
     public int getImportanceId() {
         return importanceId;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     @Override
