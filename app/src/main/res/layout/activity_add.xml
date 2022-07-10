@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
@@ -15,36 +15,58 @@
                 android:id="@+id/toolbar" />
 
         <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_marginTop="100dp"
+                android:layout_gravity="center"
+                android:hint="应用名"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:theme="@style/InputLayout">
 
             <EditText
                     android:id="@+id/activity_add_appName"
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:hint="应用名"
-                    android:layout_marginTop="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
                     android:maxLines="1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-                android:id="@+id/activity_add_userName"
+        <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="账号"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:maxLines="1" />
+                android:hint="账号/用户名"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:theme="@style/InputLayout">
 
-        <EditText
-                android:id="@+id/activity_add_password"
+            <EditText
+                    android:id="@+id/activity_add_userName"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:hint="密码"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:maxLines="1" />
+                android:hint="密码"
+                app:hintTextColor="@color/black"
+                app:boxStrokeColor="@color/black"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:theme="@style/InputLayout">
+
+            <EditText
+                    android:id="@+id/activity_add_password"
+                    android:layout_width="250dp"
+                    android:layout_height="60dp"
+                    android:maxLines="1" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
                 android:id="@+id/radiogroup"

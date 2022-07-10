@@ -3,7 +3,7 @@
         package="com.ethan.passwordbox">
 
     <application
-            android:name="com.ethan.passwordbox.MainApplication"
+            android:name="com.ethan.passwordbox.config.MainApplication"
             android:allowBackup="true"
             android:icon="@mipmap/box"
             android:label="@string/app_name"
@@ -12,7 +12,8 @@
             android:theme="@style/Theme.PasswordBox">
         <activity android:name="com.ethan.passwordbox.ui.ShowActivity"/>
         <activity android:name="com.ethan.passwordbox.ui.AddActivity" />
-        <activity android:name="com.ethan.passwordbox.ui.MainActivity">
+        <activity android:name="com.ethan.passwordbox.ui.MainActivity"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

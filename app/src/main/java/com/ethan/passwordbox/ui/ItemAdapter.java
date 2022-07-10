@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ethan.passwordbox.POJO.Item;
 import com.ethan.passwordbox.R;
+import com.ethan.passwordbox.config.Cons;
 
 import java.util.List;
 
@@ -63,13 +64,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     public int importanceId2ImageId(int importanceId) {
         int imageId;
         switch (importanceId) {
-            case 1:
+            case Cons.Importance.MOST:
                 imageId = R.drawable.key_red_v2;
                 break;
-            case 2:
+            case Cons.Importance.MORE:
                 imageId = R.drawable.key_orange_v2;
                 break;
-            case 3:
+            case Cons.Importance.NORMAL:
                 imageId = R.drawable.key_blue_v2;
                 break;
             default:
@@ -90,7 +91,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
             mView = itemView;
             mImageView = itemView.findViewById(R.id.keyImage);
             mAppName = itemView.findViewById(R.id.appName);
-            mUserName=itemView.findViewById(R.id.userName);
+            mUserName = itemView.findViewById(R.id.userName);
         }
     }
 }

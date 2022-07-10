@@ -11,7 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.ethan.passwordbox.MainApplication;
+import com.ethan.passwordbox.config.MainApplication;
 import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
 import com.ethan.passwordbox.POJO.Item;

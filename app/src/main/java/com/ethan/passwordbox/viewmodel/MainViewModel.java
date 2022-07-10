@@ -4,7 +4,7 @@ import androidx.lifecycle.*;
 
 import com.ethan.ethanutils.ELog;
 import com.ethan.passwordbox.data.local.AppDao;
-import com.ethan.passwordbox.MainApplication;
+import com.ethan.passwordbox.config.MainApplication;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
 import com.ethan.passwordbox.POJO.Item;
 
@@ -30,7 +30,7 @@ public class MainViewModel extends ViewModel implements LifecycleObserver {
     public void loadFromDB() {
         new Thread(() -> {
             AppDao appDao = AppRoomDatabase.getMyRoomDatabase(MainApplication.mContext).appDao();
-            mList.postValue(appDao.queryAll());
+            mList.postValue(appDao.queryAllOrderBy());
             ELog.d("从数据库中获取了List");
         }).start();
     }

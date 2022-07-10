@@ -19,6 +19,9 @@ public interface AppDao {
     @Query("select * from Item")
     List<Item> queryAll();
 
+    @Query("select * from Item order by importanceId, appName")
+    List<Item> queryAllOrderBy();
+
     @Delete
     void deleteItem(Item item);
 }

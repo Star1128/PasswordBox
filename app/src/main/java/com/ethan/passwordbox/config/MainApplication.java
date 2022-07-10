@@ -1,4 +1,4 @@
-package com.ethan.passwordbox;
+package com.ethan.passwordbox.config;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
