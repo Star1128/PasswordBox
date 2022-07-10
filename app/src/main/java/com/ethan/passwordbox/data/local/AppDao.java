@@ -19,7 +19,7 @@ public interface AppDao {
     @Query("select * from Item")
     List<Item> queryAll();
 
-    @Query("select * from Item order by importanceId, appName")
+    @Query("select * from Item order by importanceId, appName collate nocase asc")
     List<Item> queryAllOrderBy();
 
     @Delete
