@@ -18,6 +18,7 @@ import com.ethan.passwordbox.config.MainApplication;
 import com.ethan.passwordbox.data.local.AppDao;
 import com.ethan.passwordbox.data.local.AppRoomDatabase;
 import com.ethan.passwordbox.encrypt.AES;
+import com.ethan.passwordbox.utils.IdUtil;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
     @NonNull
     @Override
     public ItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.normal_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
 
         holder.mView.setOnLongClickListener(new View.OnLongClickListener() {
@@ -79,30 +80,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         Item item = mList.get(position);
         holder.mAppName.setText(item.getAppName());
         holder.mUserName.setText(item.getUserName());
-        holder.mImageView.setImageResource(importanceId2ImageId(item.getImportanceId()));
+        holder.mImageView.setImageResource(IdUtil.importanceId2ImageId(item.getImportanceId()));
     }
 
     @Override
     public int getItemCount() {
         return mList.size();
-    }
-
-    public int importanceId2ImageId(int importanceId) {
-        int imageId;
-        switch (importanceId) {
-            case Cons.Importance.MOST:
-                imageId = R.drawable.key_red_v2;
-                break;
-            case Cons.Importance.MORE:
-                imageId = R.drawable.key_orange_v2;
-                break;
-            case Cons.Importance.NORMAL:
-                imageId = R.drawable.key_blue_v2;
-                break;
-            default:
-                imageId = R.drawable.key_default;
-        }
-        return imageId;
     }
 
     public void deleteItem(Item item, Context context,int position) {

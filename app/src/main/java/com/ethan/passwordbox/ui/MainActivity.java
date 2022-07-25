@@ -44,12 +44,14 @@ public class MainActivity extends AppCompatActivity {
             public void onChanged(List<Item> items) {
                 ItemAdapter adapter = new ItemAdapter(items);
                 mBinding.recyclerview.setAdapter(adapter);
+//                SwipeItemAdapter adapter=new SwipeItemAdapter(R.layout.swipe_item, items);
+//                mBinding.recyclerview.setAdapter(adapter);
             }
         });
 
         getLifecycle().addObserver(mainViewModel);
 
-        // 设置加载圈的颜色,多个颜色就是每转一圈换一个颜色
+        // 设置加载圈的颜色，多个颜色就是每转一圈换一个颜色
         mBinding.swipe.setColorSchemeColors(Color.BLACK);
         mBinding.swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
