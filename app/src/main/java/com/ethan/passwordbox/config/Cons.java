@@ -21,4 +21,8 @@ public class Cons {
         public static final String PRIVATE_KEY = "2000w11w28x17c05";
         public static final String IV_PARAMETER = "138e0321t6h3a7n7";
     }
+
+    public static class Custom {
+        public static final String CUSTOM_CONFIG_TABLE = "custom_config";
+    }
 }

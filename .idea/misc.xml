@@ -12,6 +12,20 @@
         <entry key="..\:/CODE/CODE_Android/Projects/PasswordBox/app/src/main/res/layout/recycler_item.xml" value="0.1" />
         <entry key="..\:/CODE/CODE_Android/Projects/PasswordBox/app/src/main/res/layout/swipe_item.xml" value="0.21145833333333333" />
         <entry key="..\:/CODE/CODE_Android/Projects/PasswordBox/app/src/main/res/menu/menu_add.xml" value="0.21145833333333333" />
+        <entry key="app/src/main/res/drawable-anydpi/add_black.xml" value="0.1415" />
+        <entry key="app/src/main/res/drawable-anydpi/add_matching.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/key_default.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_add.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24320652173913043" />
+        <entry key="app/src/main/res/layout/activity_show.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/layout/dialog_add_matching.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/layout/item_matching.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/item_normal.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/layout/item_swipe.xml" value="0.30416666666666664" />
+        <entry key="app/src/main/res/layout/normal_item.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/layout/swipe_item.xml" value="0.2972222222222222" />
+        <entry key="app/src/main/res/menu/menu_add.xml" value="0.3182291666666667" />
+        <entry key="app/src/main/res/menu/menu_main.xml" value="0.31927083333333334" />
       </map>
     </option>
   </component>

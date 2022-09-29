@@ -1,3 +1,0 @@
-1.在模块管理中import
-2.在工程settings.gradle中写入 include ':EthanUtils'
-3.导入module依赖

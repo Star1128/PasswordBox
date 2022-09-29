@@ -8,4 +8,10 @@
             android:icon="@drawable/add_black"
             app:showAsAction="always" />
 
+    <item
+            android:id="@+id/item_add_custom_config"
+            android:title="@string/add_matching"
+            android:icon="@drawable/add_matching"
+            app:showAsAction="ifRoom" />
+
 </menu>

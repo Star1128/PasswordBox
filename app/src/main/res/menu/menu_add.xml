@@ -4,6 +4,6 @@
     <item
             android:id="@+id/item_commit"
             android:title="@string/item_commit"
-            android:icon="@drawable/commit_black_v2"
+            android:icon="@drawable/commit_black_v3"
             app:showAsAction="always" />
 </menu>

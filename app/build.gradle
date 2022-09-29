@@ -10,8 +10,8 @@ android {
         applicationId "com.ethan.passwordbox"
         minSdkVersion 24
         targetSdkVersion 30
-        versionCode 5
-        versionName "3.0"
+        versionCode 6
+        versionName "3.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
@@ -37,17 +37,16 @@ android {
 }
 
 dependencies {
-    implementation 'com.github.anzaizai:EasySwipeMenuLayout:1.1.4'
-    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+    implementation 'com.github.Star1128:EUtils:1.0.4'
+//    implementation 'com.ethan.EthanUtils:EthanUtils:1.0.4'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     debugImplementation 'com.guolindev.glance:glance:1.1.0'
-    implementation "androidx.room:room-runtime:2.3.0"
-    annotationProcessor 'androidx.room:room-compiler:2.3.0'
+    implementation 'androidx.room:room-runtime:2.4.0-alpha03'
+    annotationProcessor 'androidx.room:room-compiler:2.4.0-alpha03'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.appcompat:appcompat:1.3.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0'
-    implementation project(path: ':EthanUtils')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
