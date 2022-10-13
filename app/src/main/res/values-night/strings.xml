@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">密码保管箱</string>
+    <string name="version_code">3.2</string>
     <string name="version">Version 3.2</string>
     <string name="plus_description">添加项目</string>
     <string name="item_add">添加应用</string>
